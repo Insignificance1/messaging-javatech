@@ -9,17 +9,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.util.UUID;
-
 @SpringBootApplication
 public class MessagingRabbitmqApplication {
 
 	static final String fanoutExchangeName = "spring-boot-exchange";
-
 	static final String queueName = "spring-boot" + UUID.randomUUID();
 
 	@Bean
 	Queue queue() {
-		return new Queue(queueName, false);
+		return new Queue(queueName, false, true, true);
 	}
 
 	@Bean
